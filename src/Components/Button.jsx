@@ -1,6 +1,5 @@
 import { useContext } from "react"
 import { CalcContext } from "../Context/CalcContext"
-import { IoMdBackspace } from "react-icons/io";
 
 export default function Button({ btn }) {
 
@@ -51,14 +50,15 @@ export default function Button({ btn }) {
   }
   const handleDelete = ()=>{
     setCalc({
-      ...calc, num: Math.floor(calc.num/10),
+      ...calc,
+      num: calc.num.length > 1 ? calc.num.slice(0, -1) : 0,
     })
   }
 
   const handleEquals = ()=>{
     function perfomCalc() {
-      let num1 = parseInt(calc.res)
-      let num2 = parseInt(calc.num)
+      let num1 = parseFloat(calc.res)
+      let num2 = parseFloat(calc.num)
       const operation = {
         "+": num1 + num2,
         "-": num1 - num2,
