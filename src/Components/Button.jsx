@@ -55,23 +55,31 @@ export default function Button({ btn }) {
     })
   }
 
-  const handleEquals = ()=>{
-    function perfomCalc() {
-      let num1 = parseFloat(calc.res)
-      let num2 = parseFloat(calc.num)
+  const handleEquals = () => {
+    const performCalc = () => {
+      const num1 = parseFloat(calc.res);
+      const num2 = parseFloat(calc.num);
+  
       const operation = {
         "+": num1 + num2,
         "-": num1 - num2,
-        "/": num1 / num2,
+        "/": num2 !== 0 ? num1 / num2 : "Error",
         "x": num1 * num2,
-        "%": (num1*num2)/100,
-      }
+        "%": (num1 * num2) / 100,
+      };
+  
       return operation[calc.sign];
-    }
+    };
+  
+    const result = performCalc();
+  
     setCalc({
-      ...calc, num: perfomCalc(), res: 0, sign: ""
-    })
-  }
+      ...calc,
+      num: result !== "Error" ? result.toString() : "Error",
+      res: 0,
+      sign: "",
+    });
+  };
 
   const classNameMap = {
     "=": "equals button",
