@@ -2,6 +2,9 @@
 
 Welcome to the React Mini Calculator project! This is a simple yet powerful demonstration of React's capabilities in building dynamic user interfaces. With this calculator, users can perform basic arithmetic operations such as addition, subtraction, multiplication, and division effortlessly.
 
+# Link
+https://calculator-by-zaid.netlify.app/
+
 ## Features
 
 - **Basic Arithmetic Operations:** Perform addition, subtraction, multiplication, and division effortlessly with intuitive button inputs.
